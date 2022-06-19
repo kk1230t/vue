@@ -1,0 +1,129 @@
+::v-deep {
+  &.el-table {
+    &__fixed-header-wrapper {
+      .el-table__body-wrapper {
+        display: none;
+      }
+    }
+    border: {
+      top: 2px solid $--color-tertiary;
+      bottom: 2px solid $--color-tertiary;
+    }
+    .cell {
+      padding: 0 1.2rem;
+    }
+    thead {
+      color: $--color-tertiary;
+      font-weight: $--font-weight-medium;
+      th.el-table__cell {
+        text-align: center;
+        &:nth-last-child(1) {
+          border: none;
+        }
+        &.is-leaf {
+          border-color: $--color-palegray;
+        }
+      }
+    }
+    &__cell {
+      &:not(:first-child) {
+        border-left: 1px solid $--color-border-list;
+      }
+    }
+    td.el-table__cell,
+    .el-table th.el-table__cell.is-leaf {
+      border-color: $--color-border-list;
+      color: $--color-darkgray;
+    }
+    .table-wrap {
+      display: flex;
+      align-items: center;
+      span {
+        min-width: 4.5rem;
+      }
+      .el-select {
+        min-width: 15rem;
+        margin: 0 0.8rem;
+      }
+    }
+    &.hide-header {
+      .el-table__body-wrapper {
+        table {
+          tr {
+            td {
+              padding: 2rem 0;
+              &:first-child {
+                font-size: $--font-size-medium;
+                font-weight: $--font-weight-medium;
+                color: $--color-tertiary;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.has-form{
+      border-bottom: 1px solid $--color-skygray;
+      .el-table{
+        &__cell{
+          border: none;
+        }
+        &__body-wrapper{
+          table{
+            tr{
+              td{
+                padding: 1.2rem 0;
+                .cell{
+                  padding: 0;
+                }
+                .el-table__cell{
+                  border-bottom: none;
+                }
+                .item{
+                  width: 40%;
+                  color: $--color-darkgray;
+                }
+                span{
+                  font-weight: $--font-weight-default;
+                }
+              }
+            }
+          }
+        }
+      }
+      .table-wrap {
+        justify-content: space-between;
+        .data{
+          width: 60%;
+          text-align: right;
+        }
+        .el{
+          &-select {
+            margin: 0;
+          }
+          &-radio-group{
+            flex-grow: 1;
+          }
+          &-button {
+            span{
+              font-weight: 700;
+            }
+          }
+        }
+        .desc{
+          text-align: right;
+        }
+      }
+      .form-wrap {
+        display: block;
+        .form-item{
+          & + .form-item{margin-top: 0.8rem;}
+        }
+      }
+    }
+  }
+  .el-table__footer-wrapper tbody td.el-table__cell {
+    color: $--color-primary;
+    padding: 2rem 0;
+  }
+}

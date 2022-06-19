@@ -1,0 +1,10 @@
+.hljs {
+  font-size: 16px;
+  padding: 20px;
+  .hljs-tag {
+   /* display: block;*/
+  }
+  &.javascript{
+    color: #9CDCFE;
+  }
+}

@@ -1,0 +1,102 @@
+.el-radio {
+  ::v-deep .el-radio__input {
+    .el-radio__inner {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-color: $--color-darkgray;
+      background-color: $--color-white;
+
+      &:after {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+
+  ::v-deep .el-radio__label {
+    padding-left: 1.2rem;
+    color: $--color-tertiary;
+    font-size: $--font-size-medium;
+  }
+
+  &.is-checked {
+    ::v-deep .el-radio__input {
+      .el-radio__inner {
+        border-color: $--color-primary;
+        background-color: $--color-primary;
+      }
+    }
+  }
+
+  &.is-disabled {
+    ::v-deep .el-radio__input {
+      .el-radio__inner {
+        border-color: $--color-tertiary-lightgray;
+        background-color: $--color-palegray;
+      }
+    }
+
+    &.is-checked .el-radio__inner .el-radio__inner:before {
+      background-color: $--color-tertiary-lightgray;
+    }
+  }
+
+  &.el-radio--check {
+    position: relative;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 100px;
+    border: 0;
+    background-color: $--color-palegray;
+
+    & + &.el-radio--check {
+      margin: 0;
+    }
+
+    ::v-deep .el-radio__input {
+      position: absolute;
+      top: 50%;
+      left: 1.6rem;
+      transform: translateY(-50%);
+      font-family: 'icomoon' !important;
+      font-style: normal;
+      font-weight: normal;
+      font-feature-settings: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+  
+      &::before {
+        content: "\e924";
+      }
+    }
+  }
+
+  &.el-radio--check {
+    ::v-deep .el-radio__inner {
+      display: none;
+    }
+    ::v-deep .el-radio__label {
+      display: inline-block;
+      height: 4.2rem;
+      padding: 0 1.4rem 0 3.4rem;
+      color: $--color-darkgray;
+      font-size: $--font-size-medium;
+      line-height: 4.2rem;
+    }
+
+    &.is-checked {
+      background-color: $--color-primary;
+
+      ::v-deep .el-radio__label {
+        color: $--color-white;
+      }
+      ::v-deep .el-radio__input {
+        color: $--color-white;
+      }
+    }
+  }
+}

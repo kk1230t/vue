@@ -1,0 +1,35 @@
+::v-deep.el-range-editor {
+  &.el-input__inner {
+    .el-icon-date {
+      order: 2;
+      background: url(@/static/icons/icon_calendar.svg) no-repeat center / 16px;
+      &::before {
+        content: '';
+      }
+    }
+    .el-range {
+      &-input {
+        order: 1;
+        flex: 1;
+      }
+      &-separator {
+        order: 3;
+        & + .el-range-input {
+          order: 4;
+        }
+      }
+      &__close-icon {
+        background: url(@/static/icons/icon_calendar.svg) no-repeat center /
+          16px;
+        order: 5;
+      }
+    }
+  }
+  &.is-active,
+  &.is-active:hover,
+  &.is-focus {
+    .el-input__inner {
+      border-color: $--color-primary;
+    }
+  }
+}

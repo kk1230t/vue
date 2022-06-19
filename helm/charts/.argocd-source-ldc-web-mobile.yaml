@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: harbor.digitallina.com/develop-ldc/ldc-web-mobile
+    forcestring: true
+  - name: image.tag
+    value: d7b66918f163859f0f7a7a6ec435de75caf6021f
+    forcestring: true

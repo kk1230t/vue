@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "springboot-demoweb.fullname" . }}
+  labels:
+    app: {{ template "springboot-demoweb.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}   
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}           
+      labels:
+        app: {{ template "springboot-demoweb.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      serviceAccountName: {{ include "springboot-demoweb.serviceAccountName" . }}      
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+          env:
+            - name: CLST_ID
+              value: {{ .Values.gantry.clstId }}
+            - name: NODE_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: {{ .Values.gantry.jaegerServiceName }}
+            - name: JAEGER_SERVICE_NAME
+              value: "$(SERVICE_NAME);$(NAMESPACE)"
+            - name: JAEGER_AGENT_HOST
+              value: {{ .Values.gantry.jaegerAgentHost }}
+            - name: JAEGER_AGENT_PORT
+              value: "{{ .Values.gantry.jaegerAgentPort }}"
+            - name: JAEGER_TAGS
+              value: xm_clst_id=$(CLST_ID),xm_node_id=$(NODE_ID),xm_namespace=$(NAMESPACE),xm_pod_id=$(POD_ID)
+            - name: JAEGER_SAMPLER_MANAGER_HOST_PORT
+              value: "{{ .Values.gantry.jaegerAgentHost }}:{{ .Values.gantry.jaegerSamplerManagerHostPort }}"
+            - name: JAEGER_SAMPLER_TYPE
+              value: remote
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.service.internalPort }}
+            initialDelaySeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.service.internalPort }}
+            initialDelaySeconds: 10
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}

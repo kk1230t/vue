@@ -1,0 +1,37 @@
+::v-deep {
+  &.el-tag {
+    height: 2.3rem;
+    padding: 0 0.8rem;
+    border: 1px solid $--color-tertiary {
+      radius: 50px;
+    }
+    background: transparent;
+    color: $--color-tertiary;
+    font: {
+      size: $--font-size-default;
+    }
+    line-height: 2.1rem;
+  }
+
+  &.el-tag + .el-tag {
+    margin-left: 0.4rem;
+  }
+
+  &.el-tag--primary {
+    border-color: $--color-success-purple;
+    color: $--color-success-purple;
+  }
+  &.el-tag--success {
+    border-color: $--color-primary;
+    color: $--color-primary;
+  }
+  &.el-tag--gray {
+    border-color: $--color-skygray;
+    background-color: $--color-skygray;
+    color: $--color-darkgray;
+  }
+  &.el-tag--danger {
+    border-color: $--color-tertiary-red;
+    color: $--color-tertiary-red;
+  }
+}

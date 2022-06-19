@@ -1,0 +1,128 @@
+::v-deep {
+  .el-pagination {
+    .btn {
+      &-prev,
+      &-next {
+        width: 32px;
+        height: 32px;
+        min-width: auto;
+        padding: 0;
+        margin: 0;
+        border: 1px solid $--color-skygray {
+          radius: 50px;
+        }
+        color: $--color-txt-black;
+        background-color: $--color-white;
+        .el-icon{
+          line-height: 31px;
+        }
+      }
+    }
+    .el-icon-arrow-left:before{
+      font-family: 'icomoon';
+      font-size: $--font-size-medium;
+      content: "\e905";
+    }
+    .el-icon-arrow-right:before{
+      font-family: 'icomoon';
+      font-size: $--font-size-medium;
+      content: "\e909";
+    }
+    .el-pager {
+      padding: 0 16px;
+      li:not(.disabled) {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        margin: 0 {
+          left: 2px
+        };
+        line-height: 31px;
+        min-width: auto;
+        border-radius: 50px;
+        color: $--color-txt-black;
+        font: {
+          size: $--font-size-medium;
+          weight: $--font-weight-default;
+        }
+        background: $--color-white;
+        &:hover {
+          color: $--color-txt-black;
+        }
+        &:not(.disabled).active {
+          background: $--color-primary;
+          font: {
+            size: $--font-size-big-large;
+            weight: $--font-weight-default;
+          }
+          color: $--color-white;
+        }
+      }
+    }
+  }
+}
+
+.pagination{
+  font-size: 0;
+  ::v-deep{
+    .el-button--gray.is-plain{
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      line-height: 34px;
+      font-size: $--font-size-medium;
+      vertical-align: middle;
+      border: {
+        color: $--color-skygray;
+        radius: 50%;
+      }
+    }
+  }
+  &-list{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-size: 0;
+    &-wrap{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 16px;
+    }
+    &:not(:first-child){
+      margin-left: 2px;
+    }
+    ::v-deep{
+      .el-button{
+        padding: 0;
+        display: block;
+        width: 100%;
+        font-size: $--font-size-medium;
+        line-height: 31px;
+        border-radius: 50%;
+        color: $--color-black;
+        &:hover, &:focus, &:active{
+          text-decoration: none;
+          background-color: transparent;
+          span{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    &.is-active{
+      ::v-deep{
+        .el-button{
+          background-color: $--color-primary;
+          color: $--color-white;
+          font-size: $--font-size-big-large;
+        }
+      }
+    }
+  }
+  .btn{
+    &-pre,&-next{
+      font-size: 0;
+    }
+  }
+}

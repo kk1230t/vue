@@ -1,0 +1,55 @@
+# Default values for springboot-demoweb.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 2
+image:
+  repository: harbor.digitallina.com/develop-ldc/ldc-web-mobile
+  tag: latest
+  pullPolicy: Always
+  #pullPolicy: IfNotPresent
+service:
+  name: nginx
+  type: NodePort
+  externalPort: 8080
+  internalPort: 8080
+  livenessProbePath: /pub
+  readinessProbePath: /pub
+serviceAccount:
+  create: true  
+  annotations: {}
+  name: ""  
+podAnnotations:
+  'consul.hashicorp.com/connect-inject': 'true'  
+serviceDefaults:
+  create: true
+  protocol: http  
+ingress:
+  enabled: false
+  # Used to create an Ingress record.
+  hosts:
+    - chart-example.local
+  annotations:
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  tls:
+    # Secrets must be manually created in the namespace.
+    # - secretName: chart-example-tls
+    #   hosts:
+    #     - chart-example.local
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+gantry:
+  clstId: cloudmoa
+  jaegerServiceName: "metadata.labels['app']"
+  jaegerAgentHost: "cloudmoa-trace-agent.imxc.svc.cluster.local"
+  jaegerAgentPort: "6831"
+  jaegerSamplerManagerHostPort: "5778"

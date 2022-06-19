@@ -1,0 +1,654 @@
+::v-deep.el-button {
+    margin: 0;
+    border-color: transparent;
+    border-radius: 0;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+    &:hover span,
+    &:focus span,
+    &:active span {
+      text-decoration: underline;
+    }
+    span {
+      display:inline-block;
+    }
+    //Btn - Round Style
+    &.is-round {
+      border-radius: 4px;
+    }
+    //Btn - Circle Style
+    &.is-circle {
+      border-radius: 100px;
+    }
+     //Btn - Line Style
+    &.is-plain {
+      border-width: 1px;
+      border-style: solid;
+      border-color: $--color-primary;
+      box-sizing: border-box;
+      background: $--color-white;
+      color: $--color-tertiary;
+    }
+    //Btn - Full 
+    &.full {
+      width: 100%;
+      height: 100%;
+    }
+    &.half{
+      width: 50%;
+    }
+    &.tab{
+      text-decoration: none;
+      span{
+        text-decoration: none;
+      }
+    }
+    //Btn - 비활성화
+    &.is-disabled {
+      background: $--color-skygray;
+      color: $--color-tertiary-lightgray;
+      border-color: $--color-skygray;
+      &::before,
+      &:after {
+        color: $--color-white;
+        border-color: $--color-white;
+      }
+      &:hover,
+      &:focus,
+      &:active{
+        text-decoration: none;
+      }
+      &:hover span,
+      &:focus span,
+      &:active span{
+        text-decoration: none;
+      }
+      &.is-plain.is-disabled {
+        background: $--color-skygray;
+        color: $--color-tertiary-lightgray;
+        border-color: $--color-skygray;
+      }
+    }
+    &.bold{
+      span{
+        font-weight: 700;
+      }
+    }
+  .next {
+    display: inline-block;
+    vertical-align: middle;
+    &::after {
+      content: '';
+    }
+  }
+  .down {
+    display: inline-block;
+    vertical-align: middle;
+    &::after {
+      display: block;
+      margin-bottom: 2px;
+      width: $--font-size-calendar-small;
+      height: $--font-size-calendar-small;
+      border-left: 2px solid;
+      border-bottom: 2px solid;
+      transform: rotate(315deg);
+      content: '';
+    }
+  }
+  .up {
+    display: inline-block;
+    vertical-align: middle;
+    &::after {
+      display: block;
+      margin-bottom: 2px;
+      width: $--font-size-calendar-small;
+      height: $--font-size-calendar-small;
+      border-left: 2px solid;
+      border-bottom: 2px solid;
+      transform: rotate(135deg);
+      content: '';
+    }
+  }
+  .plus {
+    position: relative;
+    padding-left: 16px;
+    margin-right: 5px;
+    &.is-round {
+      padding-left: 16px;
+    }
+    &::before {
+      position: absolute;
+      width: 16px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      border: 1px solid;
+      vertical-align: middle;
+      content: '';
+    }
+    &::after {
+      position: absolute;
+      height: 16px;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      border: 1px solid;
+      vertical-align: middle;
+      content: '';
+    }
+  }
+  .home {
+    display: block;
+    padding: 0;
+    border: 0;
+    width: $--font-size-extra-large;
+    height: $--font-size-extra-large;
+    background: url(~@/static/icons/icon_home.png) no-repeat center / 100%;
+    &:hover {
+      background: transparent url(~@/static/icons/icon_home.png) no-repeat
+        center / 100%;
+    }
+  }
+  .close {
+    display: block;
+    padding: 0;
+    border: 0;
+    width: $--font-size-extra-large;
+    height: $--font-size-extra-large;
+    background: url(~@/static/icons/icon_close.png) no-repeat center / 100%;
+    &:hover {
+      background: transparent url(~@/static/icons/icon_close.png) no-repeat
+        center / 100%;
+    }
+    &-white {
+      display: block;
+      padding: 0;
+      border: 0;
+      width: $--font-size-extra-large;
+      height: $--font-size-extra-large;
+      background: url(~@/static/icons/icon_close-w.svg) no-repeat center / 100%;
+      &:hover {
+        background: transparent url(~@/static/icons/icon_close-w.svg) no-repeat
+          center / 100%;
+      }
+    }
+  }
+  .listen {
+    display: inline-block;
+    vertical-align: middle;
+    &::after {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      font-size: 0;
+      background: url(~@/static/icons/icon_listen.png) no-repeat center / 100%;
+      vertical-align: middle;
+      content: '청취 아이콘';
+    }
+  }
+  //Btn - 초기화
+  &--reset {
+    padding: 0;
+    color: #000;
+    font-size: 1.4rem;
+    background: none;
+    &:focus {
+      background: inherit;
+      color: inherit;
+    }
+  }
+
+  &--icon.el-button {
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
+    vertical-align: middle;
+    span {
+      display:none;
+     }
+   i {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 0;
+      vertical-align: middle;
+      line-height: 4rem;
+      
+    }
+    i::after {
+      display:inline-block;
+      position: absolute;
+      width:1px;
+      height:1px;
+      color:transparent;
+      overflow: hidden;
+    }
+    .icon-Plus::after {  
+      content: '더보기'; 
+    }
+    .icon-ArrowR02::after {  
+      content: '다음'; 
+    }
+    &.el-button--medium {
+      i {
+        line-height: 3.2rem;
+      }
+    }
+    &.el-button--small {
+      i {
+        font-size:15px;
+        line-height: 2.4rem;
+      }
+    }
+    &.el-button--navy {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color:$--color-white; 
+        color:$--color-primary;
+        border-color: $--color-primary;
+      }
+    }
+    &.el-button--black {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $--color-white; 
+        color: $--color-tertiary;
+        border-color: $--color-tertiary;
+      }
+    }
+    &.el-button--white {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $--color-tertiary;  
+        color: $--color-white;
+        border-color: $--color-tertiary;
+      }
+    }
+     &.el-button--white {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $--color-tertiary;  
+        color: $--color-white;
+        border-color: $--color-tertiary;
+      }
+    }
+     
+  }
+  //Btn - Size - Large
+  &--large {
+    height: 58px;
+    padding: $--font-size-big-large 4.0rem;
+    font-size: $--font-size-large;
+    font-weight: $--font-weight-medium;
+  }
+  //Btn - Size - Medium
+  &--medium {
+    height: 50px;
+    padding: 12px 16px;
+    font-size: $--font-size-medium;
+    font-weight: $--font-weight-medium;
+    .next {
+      &::after {
+        width: $--font-size-extra-small;
+        height: $--font-size-extra-small;
+      }
+    }
+  
+    &.el-button--icon {
+      padding: 0;
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+  //Btn - Size - Small
+  &--small {
+    height: 38px;
+    padding: $--font-size-small $--font-size-default;
+    font-size: $--font-size-x-medium;
+    font-weight: $--font-weight-medium;
+    &.el-button--icon {
+      padding: 0;
+      width: $--font-size-extra-large;
+      height: $--font-size-extra-large;
+    }
+  }
+  //Btn - Size - Mini
+  &--mini {
+    padding: $--font-size-extra-small $--font-size-default;
+    .next {
+      &::after {
+        width: 0.5rem;
+        height: 0.5rem;
+      }
+    }
+    &.el-button--icon {
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      
+    }
+  }
+  
+  &--listen {
+    position: relative;
+    padding-right: 3rem;
+    font: {
+      size: $--font-size-medium;
+      weight: $--font-weight-medium;
+    }
+    &::after {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      width: 1.6rem;
+      height: 1.6rem;
+      font-size: 0;
+      background: url(~@/static/icons/icon_listen.png) no-repeat center / 100%;
+      vertical-align: middle;
+      content: '청취 아이콘';
+    }
+  }
+  &--download {
+    color: $--color-secondary;
+    text-decoration: underline;
+    &::before {
+      display: inline-block;
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      background: url(~@/static/icons/icon_clip.png) no-repeat center / 100%;
+      font-size: 0;
+      content: '다운로드 아이콘';
+    }
+  }
+
+  &--horizontal {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    color: $--color--txt-gray;
+    border: 0 {
+      radius: 0;
+    }
+    .icon {
+      display: block;
+      margin: 0 auto 7px;
+    }
+  }
+   //Btn - Color - Navy
+  &--navy {
+    background: $--color-primary;
+    color: $--color-white;
+    &:hover,
+    &:focus {}
+    &.is-plain {
+      border-color: $--color-primary;
+      color: $--color-primary;
+      // &:hover,
+      // &:focus,
+      // &:active,
+      //  {
+      //   *border-color: $--color-secondary;
+        
+      //   :after,
+      //   &::before,
+      //   i {
+      //     border-color: $--color-secondary;
+      //     color: $--color-secondary;
+      //   }
+      // }
+      i,
+      &:after,
+      &::before {
+        border-color: $--color-primary;
+        color: $--color-primary;
+      }
+    }
+    // &.is-disabled {
+    //   background: $--color-border;
+    //   &::before,
+    //   &:after {
+    //     color: $--color-white;
+    //     border-color: $--color-white;
+    //   }
+    //   &:hover {
+    //     background: $--color-border;
+    //   }
+    // }
+  }
+  //Btn - Color - Blue-light
+  &--blue-light {
+    background: $--color-primary-light;
+    color: $--color-primary;
+    // &:hover,
+    // &:focus {
+    //   background: $--color-primary-light-hover;
+    //   color: $--color-secondary;
+    //   &::before,
+    //   &::after {
+    //     border-color: $--color-secondary;
+    //     color: $--color-secondary;
+    //   }
+    //}
+    &::before,
+    &::after {
+      border-color: $--color-primary;
+      color: $--color-primary;
+    }
+    &.is-plain {
+      border: 1px solid $--color-primary;
+      background: $--color-white;
+      color: $--color-primary;
+      // &:hover,
+      // &:focus {
+      //   border-color: $--color-secondary;
+      //   background: $--color-white;
+      //   color: $--color-secondary;
+      //   &:after,
+      //   &::before {
+      //     border-color: $--color-secondary;
+      //     color: $--color-secondary;
+      //   }
+      // }
+      &:after,
+      &::before {
+        border-color: $--color-primary;
+        color: $--color-primary;
+      }
+    }
+    // &.is-disabled {
+    //   background: $--color-border-list;
+    //   color: $--color-white;
+    //   &::before,
+    //   &:after {
+    //     color: $--color-white;
+    //     border-color: $--color-white;
+    //   }
+    //   &:hover {
+    //     background: $--color-border-list;
+    //     color: $--color-white;
+    //   }
+    // }
+  }
+  //Btn - Color - Gray
+  &--gray {
+    background: $--color-darkgray;
+    color: $--color-white;
+    &.is-plain {
+      border-color:$--color-darkgray;
+      color: $--color-tertiary;
+    }
+  }
+   //Btn - Color - sky-gray
+  &--sky-gray {
+    background: $--color-skygray;
+    color: $--color-tertiary;
+    &.is-plain {
+      border-color:$--color-skygray;
+      color: $--color-tertiary;
+    }
+  }
+  //Btn - Color - Gray-light
+  &--gray-light {
+    background: $--color-palegray;
+    color: $--color-darkgray;
+    &.is-plain {
+      border-color: $--color-palegray;
+      color: $--color-darkgray;
+    }
+  }
+  //Btn - Color - Puple
+  &--purple  {
+    background: $--color-success-purple;
+    color: $--color-white;
+    &.is-plain {
+      border-color: $--color-success-purple;
+      color: $--color-success-purple;
+    }
+  }
+  //Btn - Color - Magenta
+  &--magenta  {
+    background:$--color-success-magenta;
+    color: $--color-tertiary;
+    &.is-plain {
+      border-color: $--color-success-magenta;
+      color: $--color-tertiary;
+    }
+  }
+  //Btn - Color - Green
+  &--green  {
+    background: $--color-secondary-green;
+    color: $--color-tertiary;
+    &.is-plain {
+      border-color: $--color-secondary-green;
+      color: $--color-tertiary;
+    }
+  }
+  //Btn - Color - Sky-blue
+  &--sky-blue {
+    background: $--color-secondary-blue;
+    color: $--color-tertiary;
+    &.is-plain {
+      border-color: $--color-secondary-blue;
+      color: $--color-tertiary;
+    }
+  }
+   //Btn - Color - Black
+  &--black {
+    background:$--color-tertiary;
+    color: $--color-white;
+    &.is-plain {
+      border-color: $--color-tertiary;
+      color: $--color-tertiary;
+    }
+  }
+  //Btn - Color - White
+  &--white {
+    background: $--color-white;
+    color: $--color-tertiary;
+    border-color:$--color-black;
+  }
+  //Btn - Color - Yellow
+  &--yellow {
+    background:$--color-tertiary-yellow;
+    color: $--color-white;
+    &.is-plain {
+      border-color: $--color-tertiary-yellow;
+      color: $--color-tertiary;
+    }
+  }
+  //TexBtn
+  
+  &--text,
+  &--text-gray {
+    padding: 0;
+    color: $--color-primary;
+    //text-decoration: underline;
+    font-weight: $--font-weight-medium;
+    font-size: $--font-size-large;
+    line-height :1.6;
+    span {
+        display: inline-block;
+        border-bottom: 1px solid $--color-primary;
+      }
+    &-icon {
+      span { 
+        border-bottom:0 none;
+      }
+    }
+    &:hover span,
+    &:active span,
+    &:focus span{
+      text-decoration: none;
+    }
+    &.el-button--medium {
+      height:auto ;
+      font-size:$--font-size-medium;
+    }
+    &.el-button--small {
+      height:auto ;
+      font-size: $--font-size-x-medium;
+    }
+    &.el-button--mini {
+      height: auto;
+      font-size: $--font-size-x-medium;
+      font-weight: $--font-weight-default;
+    }
+    &.is-disabled {
+      height: auto;
+      background: transparent;
+      border: 0 none;
+      span {
+        border-color: $--color-tertiary-lightgray;
+      }
+      &:hover span,
+      &:active span,
+      &:focus span{
+        border-color:$--color-tertiary-lightgray;
+      }
+     
+    }
+    &.el-button--add {
+      text-decoration: none;
+    }
+    &-gray {
+      padding: 0;
+      background: transparent;
+      color: $--color-darkgray;
+      span {
+        border-color:$--color-darkgray;
+      }
+      &:hover,
+      &:active,
+      &:focus{
+        color:$--color-black;
+         span {
+          border-color:$--color--txt-gray;
+         }
+      }
+      &.is-disabled {
+        color: $--color-tertiary-lightgray;
+        height:auto;
+        background-color:#fff;
+        border:0 none;
+        &::before,
+        &::after {
+          border-color: $--color-border;
+          color: $--color-border;
+        }
+      }
+      &.el-button--add {
+        text-decoration: none;
+      }
+    }
+  }
+ 
+}

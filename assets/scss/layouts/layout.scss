@@ -1,0 +1,41 @@
+.l {
+  &-content {
+    padding: 10px 0;
+  }
+  &-section {
+    padding: 0 20px 40px;
+    &.gap_top {
+      margin-top: 22px;
+    }
+    &.gap-both {
+      margin-top: 22px;
+      margin-bottom: 61px;
+    }
+    &.gap-bottom {
+      margin-bottom: 61px;
+    }
+    & + & {
+      border-top: 12px solid $--color-palegray;
+      padding-top: 32px;
+    }
+  }
+  &-amount {
+    padding: {
+      top: 8px;
+      bottom: 20px;
+    }
+    .info {
+      padding-top: 8px;
+    }
+  }
+  &-box-link {
+    padding-top: 50px;
+  }
+  &-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+}

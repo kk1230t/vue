@@ -1,0 +1,24 @@
+.l-footer {
+  padding: 20px 28px;
+  width: 100%;
+  background-color: #f9f9fb;
+  .footer {
+    &-info {
+      &__center {
+        margin-bottom: 12px;
+      }
+      &__button {
+        margin-bottom: 6px;
+        .el-button {
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 17px;
+          letter-spacing: -0.03em;
+        }
+      }
+      &__more {
+        font-size: 12px;
+      }
+    }
+  }
+}

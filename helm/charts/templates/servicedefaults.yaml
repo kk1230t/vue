@@ -1,0 +1,8 @@
+{{- if .Values.serviceDefaults.create -}}
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: ServiceDefaults
+metadata:
+  name: {{ include "springboot-demoweb.fullname" . }}
+spec:
+  protocol: {{ .Values.serviceDefaults.protocol }}
+{{- end }}

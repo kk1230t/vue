@@ -1,0 +1,115 @@
+.input-wrap {
+  flex: 1;
+  position: relative;
+  &.has-both {
+    .clear-btn {
+      right: 35px;
+    }
+  }
+  .el-input {
+    font-size: 16px;
+    ::v-deep {
+      .el-input__inner {
+        height: 50px;
+        padding-right: 12px;
+        background: #ffffff;
+        border: 1px solid #d7d7d7;
+        border-radius: 0;
+        color: #000000;
+        font-family: inherit;
+        &::placeholder {
+          color: #afafaf;
+        }
+      }
+    }
+    &.focus {
+      ::v-deep {
+        .el-input__inner {
+          border-color: #150f96;
+        }
+      }
+    }
+    &.error {
+      ::v-deep {
+        .el-input__inner {
+          border-color: #e41913;
+        }
+      }
+    }
+    &.has-append {
+      ::v-deep {
+        .el-input__inner {
+          padding-right: 35px;
+        }
+      }
+    }
+    &.is-disabled {
+      ::v-deep {
+        .el-input__inner {
+          background: #f4f4f4;
+          border: 1px solid #d7d7d7;
+       
+        }
+      }
+    }
+  }
+  .clear-btn {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+
+    .icon-Delete {
+      font-size: 16px;
+    }
+  }
+  .append-txt {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    color: #4b4e53;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+  .error-txt {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #e41913;
+  }
+  & + & {
+    margin-left: 8px;
+  }
+  .el-textarea {
+    border: 1px solid #d7d7d7;
+    padding: 12px;
+    height: 104px;
+    ::v-deep .el-textarea__inner {
+      height: 100%;
+      resize: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 160%;
+      letter-spacing: -0.3px;
+      color: #000000;
+     
+   
+    }
+    &.is-disabled {
+      ::v-deep {
+        background: #f4f4f4;
+        .el-textarea__inner {
+          background: #f4f4f4;
+       
+        }
+      }
+    }
+  }
+}

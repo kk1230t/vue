@@ -1,0 +1,19 @@
+$fontPath: '~@/assets/fonts';
+@mixin font-face($fontFamily, $fileName, $weight) {
+  @font-face {
+    font-family: $fontFamily;
+    font-weight: $weight;
+    src: url($fontPath + '/' + $fontFamily + '/' + $fileName + '.otf')
+        format('embedded-opentype'),
+      url($fontPath + '/' + $fontFamily + '/' + $fileName + '.ttf')
+        format('truetype');
+    // url($fontPath + "/" + $fontFamily + "/" + $fileName + ".woff2")
+    //   format("woff2");
+  }
+}
+
+@include font-face('spoqa', 'SpoqaHanSansNeo-Light', 200);
+@include font-face('spoqa', 'SpoqaHanSansNeo-Thin', 300);
+@include font-face('spoqa', 'SpoqaHanSansNeo-Regular', 400);
+@include font-face('spoqa', 'SpoqaHanSansNeo-Medium', 700);
+@include font-face('spoqa', 'SpoqaHanSansNeo-Bold', 700);

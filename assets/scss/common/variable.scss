@@ -1,0 +1,66 @@
+$--font-size-extra-large: 2.4rem !default; //24px
+$--font-size-big-large: 2rem !default; //20px
+/// fontSize|1|Font Size|0
+$--font-size-large: 1.8rem !default; //18px
+/// fontSize|1|Font Size|0
+$--font-size-medium: 1.6rem !default; //16px
+$--font-size-x-medium: 1.4rem !default; //14px
+/// fontSize|1|Font Size|0
+$--font-size-default: 1.2rem !default; //12px
+$--font-size-base: 1rem !default; //10px
+$--font-size-table-small: 0.938em !default; //15px
+/// fontSize|1|Font Size|0
+$--font-size-small: 0.8em !default; //14px
+$--font-size-calendar-small: 0.813em !default; //13px
+/// fontSize|1|Font Size|0
+$--font-size-extra-small: 0.75rem !default; //12px
+/// fontLineHeight|1|Line Height|2
+$--font-line-height-primary: 26px !default;
+/// fontLineHeight|1|Line Height|2
+$--font-line-height-secondary: 18px !default;
+
+$--font-weight-default: 400 !default;
+$--font-weight-medium: 700 !default;
+$--font-weight-bold: $--font-weight-medium;
+
+/*custom theme color*/
+$--color-primary: #150f96 !default;
+$--color-success-purple: #6e27c5 !default;
+$--color-success-magenta: #ff0198 !default;
+$--color-white: #fff !default;
+$--color-gray: #3f474d !default;
+
+$--color-secondary: #ff6600 !default;
+$--color-secondary-blue: #01c1d6 !default;
+$--color-secondary-green: #7acb00 !default;
+$--color-gray-dark: #3c485c !default;
+
+$--color-tertiary: #000 !default;
+$--color-tertiary-lightgray: #afafaf !default;
+$--color-tertiary-red: #e41913 !default;
+$--color-tertiary-yellow: #ffb617 !default;
+
+$--color-palegray: #f4f4f4 !default;
+$--color-skygray: #d7d7d7 !default;
+$--color-darkgray: #4b4e53 !default;
+$--color-black: $--color-tertiary !default;
+
+$--color-primary-light: #ebf3ff !default;
+$--color-primary-light-hover: #d6e5ff !default;
+$--color-success-purple-light: #f9f0ff !default;
+$--color-success-magenta-light: #fff2e8 !default;
+
+$--color-border: #ced6de !default;
+$--color--gray-border: #a6afba !default;
+$--color-border-list: #e7ecf3 !default;
+$--color-border-primary: #8fabff !default;
+$--color-txt-black: #242b2e !default;
+$--color--txt-gray: #565c63 !default;
+$--color--txt-dark-gray: #778088 !default;
+$--color-txt-violet: #884bdd !default;
+
+$--color-bright-white: #f8f9fd !default;
+
+$--color-bright-violet: #f9f0ff !default;
+
+$--color-white-op02: rgba(255, 255, 255, 0.2) !default;

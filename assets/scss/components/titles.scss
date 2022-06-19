@@ -1,0 +1,139 @@
+.c-title {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &.button-top {
+    align-items: baseline;
+  }
+  &.is-count {
+    justify-content: flex-start;
+    .c-title_content {
+      flex: none;
+      margin-right: 8px;
+    }
+    .count {
+      font-size: $--font-size-large;
+    }
+  }
+  &_content {
+    flex: 1;
+  }
+  &_title {
+    display: flex;
+    align-items: center;
+    color: $--color-txt-black;
+    > span {
+      white-space: pre-line;
+    }
+    font: {
+      size: $--font-size-x-medium;
+      weight: $--font-weight-medium;
+    }
+    &.medium {
+      font-size: $--font-size-medium;
+    }
+    &.large {
+      font-size: $--font-size-large;
+    }
+    &.big-large {
+      font-size: $--font-size-big-large;
+    }
+    &.extra-large {
+      font-size: $--font-size-extra-large;
+    }
+    & + .c-title_text .c-title_sub {
+      margin-top: 4px;
+      padding-top: 0;
+      font-size: 14px;
+    }
+    @for $i from 10 to 49 {
+      &.fs-#{$i} {
+        font-size: #{$i/10}rem;
+        a {
+          font-size: #{$i/10}rem;
+          i {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  &_icon {
+    margin-right: 4px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  &_text {
+    ::v-deep .el-tag + .c-title_sub {
+      padding-top: 1.6rem;
+    }
+    .titlt-tag {
+      margin-bottom: 16px;
+    }
+  }
+  &_link {
+    display: flex;
+    align-items: center;
+    .link-icon {
+      margin-left: 8px;
+    }
+  }
+  &_sub {
+    color: $--color--txt-gray;
+    white-space: pre-line;
+    overflow-wrap: normal;
+    margin-top: -36px;
+  }
+  .btn-area {
+    flex: 0 0 auto;
+    ::v-deep.el-button {
+      span {
+        text-decoration: none !important;
+      }
+      &.title-btn-close {
+        i {
+          font-size: 24px;
+        }
+      }
+      &.title-btn-right {
+        i {
+          font-size: 16px;
+        }
+      }
+      &.title-btn-arrow {
+        height: 22px;
+        display: flex;
+        align-items: center;
+        span {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          color: #4b4e53;
+        }
+        i {
+          margin-left: 4px;
+          font-size: 16px;
+        }
+      }
+      &.title-btn-home {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: #f4f4f4;
+        i {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  &.center {
+    .c-title_title {
+      justify-content: center;
+    }
+  }
+}
+
+.card-type-list-wrap + .c-title.is-count {
+  margin-top: 3.2rem;
+}
